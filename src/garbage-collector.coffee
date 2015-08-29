@@ -1,3 +1,5 @@
+now = require 'performance-now'
+
 # Responsible for cleaning up scopes and their data points.
 # Does only clean the data points of the scopes and not the scopes itself.
 # The reson for this is that the scopes are contextual objects that lives in user space and should for that reason be kept alive.

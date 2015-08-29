@@ -11,7 +11,7 @@ NullDataPoint = require './null-data-point'
 class Scope extends Scopeable
 
   constructor: (name, profiler) ->
-    super(profiler)
+    super(Scope, profiler)
     @data = {}
     @name = name
     @profiler = profiler

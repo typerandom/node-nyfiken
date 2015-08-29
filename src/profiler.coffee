@@ -1,4 +1,5 @@
 WebUI = require './web-ui'
+Scope = require './scope'
 Scopeable = require './scopeable'
 GarbageCollector = require './garbage-collector'
 
@@ -7,7 +8,7 @@ GarbageCollector = require './garbage-collector'
 class Profiler extends Scopeable
 
   constructor: (maxScopeSize = 100, gcExpireAfter = 5 * 60, gcProbeInterval = 1 * 60) ->
-    super(@)
+    super(Scope, @)
     @started = false
     @defaultScope = null
     @maxScopeSize = maxScopeSize
