@@ -1,1 +1,2 @@
-module.exports = require './profiler'
+module.exports =
+  Profiler: require './profiler'

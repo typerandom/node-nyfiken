@@ -15,13 +15,16 @@ Compile CoffeeScript files in ./src into ./lib.
 
 ## Use
 
-	var profiler = new Guppy();
+	var nyfiken = require('nyfiken');
 
-	profiler.profile "Profile a block of code", (endTimer) ->
+	var profiler = new nyfiken.Profiler();
+
+	profiler.profile("Profile a block of code", function (endTimer) {
 		for (var i = 0; i < 100; i++) {
 			console.log("Yo yo! " + i);
 		}
 		endTimer();
+	});
 
 ## API
 
