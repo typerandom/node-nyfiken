@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Profiler - Overview</title>
+		<link rel="stylesheet" href="css/main.css?version=1">
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/data-providers/scope-data-provider.js"></script>
+		<script src="js/views/data-point-view.js"></script>
+		<script src="js/views/scope-view.js"></script>
+		<script>
+			var scopeDataProvider = new ScopeDataProvider("api/");
+
+			function renderViews (scopeView) {
+				scopeDataProvider.getAll(function (data) {
+					scopeView.render(data);
+				});
+			};
+
+			function onDocumentReady () {
+				renderViews(
+					new ScopeView($(".scope-container"))
+				);
+			};
+
+			$(document).ready(onDocumentReady);
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			<h1>Profiler</h1>
+		</div>
+		<div class="container">
+			<h2>Scopes</h2>
+			<div class="scope-container"></div>
+		</div>
+	</body>
+</html>

@@ -1,4 +1,5 @@
 path = require 'path'
+express = require 'express'
 
 # Responsible for hosting the web interface
 # used to view/control the profiler.
@@ -9,9 +10,6 @@ class WebUI
     @profiler = profiler
     @basePath = basePath
 
-  _getOverview: (req, res, next) ->
-    res.sendFile path.join("#{__dirname}/../ui/overview.html")
-
   _getScopes: (req, res, next) ->
     scopes = []
 
@@ -20,8 +18,15 @@ class WebUI
 
     res.json scopes
 
+  _serveAPI: (app) ->
+    app.get "#{@basePath}/api/scopes", @_getScopes.bind(@)
+
+  _serveStaticAssets: (app) ->
+    assetPath = path.join("#{__dirname}/../assets")
+    app.use @basePath, express.static(assetPath)
+
   serve: (app) ->
-    app.get "#{@basePath}/scopes", @_getScopes.bind(@)
-    app.get "#{@basePath}/", @_getOverview.bind(@)
+    @_serveAPI app
+    @_serveStaticAssets app
 
 module.exports = WebUI

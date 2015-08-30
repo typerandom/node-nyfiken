@@ -1,7 +1,7 @@
 nyfiken
 ===========================================================
 
-Simple yet powerful profiling for Node.js
+Simple yet powerful profiling for Node.js.
 
 ## Install
 
