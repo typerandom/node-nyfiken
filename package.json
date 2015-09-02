@@ -1,6 +1,6 @@
 {
   "name": "nyfiken",
-  "version": "0.1.2",
+  "version": "0.1.7",
   "description": "Simple yet powerful profiling.",
   "homepage": "https://github.com/typerandom/node-nyfiken",
   "author": {
@@ -17,7 +17,7 @@
     "type": "git",
     "url": "https://github.com/typerandom/node-nyfiken.git"
   },
-  "main": "lib/index.js",
+  "main": "index.js",
   "engines": {
     "node": ">= 0.8.0"
   },
